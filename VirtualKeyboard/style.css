@@ -64,6 +64,8 @@ html {
 
 .active {
     border-radius: 50px;
+    background:  rgb(83, 152, 221);
+    transition: .4s;
 }
 
 
