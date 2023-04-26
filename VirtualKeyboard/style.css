@@ -57,6 +57,16 @@ html {
     border-radius: 50px;
 }
 
+.key:active {
+    border-radius: 50px;
+    background:  rgb(83, 152, 221);
+}
+
+.active {
+    border-radius: 50px;
+}
+
+
 .backspace {
     width: 105px;
 }

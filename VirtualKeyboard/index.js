@@ -293,11 +293,17 @@ keyB.textContent = 'b'
 
 const keyN = document.createElement('div');
 keyN.className = 'key';
+keyN.dataset.id = '110';
 keyRow4.append(keyN);
 keyN.textContent = 'n'
 
+// // MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+// MM
+// M
+
 const keyM = document.createElement('div');
 keyM.className = 'key';
+keyM.dataset.id = '109';
 keyRow4.append(keyM);
 keyM.textContent = 'm'
 
@@ -386,27 +392,55 @@ keyRightCtrl.textContent = 'Ctrl'
 
 
 
-textarea.onkeydown = function (event) {
+
+
+document.onkeypress = function(event) {
     console.log(event.code)
-    console.log(event.key)
+    console.log(event.keyCode)
+    document.querySelectorAll('.key').forEach(function(element) {
+        element.classList.remove('active');
+    })
+    document.querySelector('.key[data-id="' + event.keyCode +'"]').classList.add('active');
 }
 
-let anyKey = document.querySelectorAll('.key');
-// let display = document.querySelector('.textarea');
-let clear = document.querySelector('.clear');
 
-for(let i of anyKey){
-i.onclick = function(){
-    if(i.textContent === 'Tab') {
-        textarea.textContent += '    ';
-    } else if(i.textContent === 'CapsLock') {
-        textarea.textContent += '';
-    } else if(i.textContent === 'Enter') {
-        textarea.textContent += '\n';
-    } else {
-        textarea.textContent += i.textContent;
-        // i.classList.add('active')
-    }
 
-  }
-}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// textarea.onkeydown = function (event) {
+//     console.log(event.code)
+//     console.log(event.key)
+// }
+
+// let anyKey = document.querySelectorAll('.key');
+// // let display = document.querySelector('.textarea');
+// let clear = document.querySelector('.clear');
+
+// for(let i of anyKey){
+// i.onclick = function(){
+//     if(i.textContent === 'Tab') {
+//         textarea.textContent += '    ';
+//     } else if(i.textContent === 'CapsLock') {
+//         textarea.textContent += '';
+//     } else if(i.textContent === 'Enter') {
+//         textarea.textContent += '\n';
+//     } else {
+//         textarea.textContent += i.textContent;
+//         // i.classList.add('active')
+//     }
+
+//   }
+// }  
