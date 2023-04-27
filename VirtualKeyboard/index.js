@@ -370,6 +370,7 @@ keyRightSlash.textContent = '/'
 
 const keyArrowUp = document.createElement('div');
 keyArrowUp.className = 'key';
+keyArrowUp.dataset.id = '9650';
 keyRow4.append(keyArrowUp);
 keyArrowUp.textContent = '▲'
 
@@ -403,6 +404,7 @@ keyLeftAlt.textContent = 'Alt'
 
 const keySpace = document.createElement('div');
 keySpace.className = 'key';
+keySpace.dataset.id = '32';
 keySpace.classList.add('space');
 keyRow5.append(keySpace);
 keySpace.textContent = ' '
@@ -414,16 +416,19 @@ keyRightAlt.textContent = 'Alt'
 
 const keyArrowLeft = document.createElement('div');
 keyArrowLeft.className = 'key';
+keyArrowLeft.dataset.id = '9668';
 keyRow5.append(keyArrowLeft);
 keyArrowLeft.textContent = '◄'
 
 const keyArrowDown = document.createElement('div');
 keyArrowDown.className = 'key';
+keyArrowDown.dataset.id = '9660';
 keyRow5.append(keyArrowDown);
 keyArrowDown.textContent = '▼'
 
 const keyArrowRight = document.createElement('div');
 keyArrowRight.className = 'key';
+keyArrowRight.dataset.id = '9658';
 keyRow5.append(keyArrowRight);
 keyArrowRight.textContent = '►'
 
@@ -433,6 +438,17 @@ keyRow5.append(keyRightCtrl);
 keyRightCtrl.textContent = 'Ctrl'
 
 
+
+
+const creationSystem = document.createElement('p');
+creationSystem.className = 'creationSystem';
+creationSystem.textContent = 'Клавиатура создана в операционной системе Windows';
+wrapper.append(creationSystem);
+
+const languageCombination = document.createElement('p');
+languageCombination.className = 'languageCombination';
+languageCombination.textContent = 'Для переключения языка комбинация: левыe ctrl + alt';
+wrapper.append(languageCombination);
 
 
 
@@ -448,32 +464,23 @@ document.onkeypress = function(event) {
     })
 
     document.querySelector('.key[data-id="' + event.keyCode +'"]').classList.add('active');
+    textarea.innerHTML += String.fromCharCode(event.keyCode);
+
     setTimeout(()=>{ document.querySelector('.key[data-id="' + event.keyCode +'"]').classList.remove('active'); }, 200);
 }
 
 document.querySelectorAll('.key').forEach(function(element) {
     element.onclick = function(event){
-        textarea.focus()
 
         document.querySelectorAll('.key').forEach(function(element) {
             element.classList.remove('active');
         });
         let code = this.getAttribute('data-id');
         textarea.innerHTML += String.fromCharCode(code);
-        // this.classList.add('active');
         console.log(code);
-        // textarea.focus()
 
     }
 });
-
-// console.log(String.fromCharCode(109))
-
-textarea.focus()
-
-
-
-
 
 
 

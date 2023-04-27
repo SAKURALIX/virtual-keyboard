@@ -1,6 +1,7 @@
 html {
     scroll-behavior: smooth;
     box-sizing: border-box;
+    background: #fffff7;
 }
 
 *, *::after, *::before{
@@ -23,9 +24,10 @@ html {
 
 .keyboard {
     padding: 5px;
-    border: 3px solid slategrey;
+    border: 3px solid #a1b9d0;
     border-radius: 4px;
     position: relative;
+    background-color: aliceblue;
 }
 
 .keyRow::after {
@@ -38,17 +40,18 @@ html {
     float: left;
     width: 40px;
     height: 40px;
-    border: 1px solid slategrey;
+    border: 1px solid #a1b9d0;
     border-radius: 4px;
     margin: 3px;
     padding: 4px;
     text-align: center;
     line-height: 32px;
+    background-color: rgb(173, 210, 300);
 }
 
 .key:hover {
     color: #fff;
-    background: slategrey;
+    background: #a1b9d0;
     cursor: pointer;
     transition: .3s;
 }
@@ -83,4 +86,12 @@ html {
 
 .space {
     width: 336px;
+}
+
+.creationSystem {
+    margin-bottom: 0;
+}
+
+.languageCombination {
+    margin-top: 5px;
 }
