@@ -105,6 +105,7 @@ keyEqual.textContent = '='
 
 const keyBackspace = document.createElement('div');
 keyBackspace.className = 'key';
+keyBackspace.dataset.extra = 'true';
 keyBackspace.classList.add('backspace');
 keyRow.append(keyBackspace);
 keyBackspace.textContent = 'Backspace'
@@ -118,6 +119,7 @@ keyboard.append(keyRow2);
 
 const keyTab = document.createElement('div');
 keyTab.className = 'key';
+keyTab.dataset.extra = 'true';
 keyTab.classList.add('tab');
 keyRow2.append(keyTab);
 keyTab.textContent = 'Tab'
@@ -202,6 +204,7 @@ backslash.textContent = '\\'
 
 const keyDel = document.createElement('div');
 keyDel.className = 'key';
+keyDel.dataset.extra = 'true';
 keyRow2.append(keyDel);
 keyDel.textContent = 'Del'
 
@@ -215,8 +218,9 @@ keyRow3.className = 'keyRow';
 keyboard.append(keyRow3);
 
 const keyCapsLock = document.createElement('div');
-keyCapsLock.className = 'key';
-keyCapsLock.classList.add('capslock');
+keyCapsLock.className = 'capslock';
+// keyCapsLock.className = 'key';
+// keyCapsLock.classList.add('capslock');
 keyRow3.append(keyCapsLock);
 keyCapsLock.textContent = 'CapsLock'
 
@@ -289,6 +293,7 @@ keyQuotes.textContent = '\''
 const keyEnter = document.createElement('div');
 keyEnter.className = 'key';
 keyEnter.dataset.id = '13';
+keyEnter.dataset.extra = 'true';
 keyEnter.classList.add('capslock');
 keyRow3.append(keyEnter);
 keyEnter.textContent = 'Enter'
@@ -304,6 +309,7 @@ keyboard.append(keyRow4);
 
 const keyLeftShift = document.createElement('div');
 keyLeftShift.className = 'key';
+keyLeftShift.dataset.extra = 'true';
 keyLeftShift.classList.add('capslock');
 keyRow4.append(keyLeftShift);
 keyLeftShift.textContent = 'Shift'
@@ -344,9 +350,11 @@ keyN.dataset.id = '110';
 keyRow4.append(keyN);
 keyN.textContent = 'n'
 
-const keyM = document.createElement('div');
+// test
+let keyM = document.createElement('div');
 keyM.className = 'key';
 keyM.dataset.id = '109';
+keyM.dataset.caps = '77';
 keyRow4.append(keyM);
 keyM.textContent = 'm'
 
@@ -376,6 +384,7 @@ keyArrowUp.textContent = '▲'
 
 const keyRightShift = document.createElement('div');
 keyRightShift.className = 'key';
+keyRightShift.dataset.extra = 'true';
 keyRightShift.classList.add('capslock');
 keyRow4.append(keyRightShift);
 keyRightShift.textContent = 'Shift'
@@ -389,16 +398,19 @@ keyboard.append(keyRow5);
 
 const keyLeftCtrl = document.createElement('div');
 keyLeftCtrl.className = 'key';
+keyLeftCtrl.dataset.extra = 'true';
 keyRow5.append(keyLeftCtrl);
 keyLeftCtrl.textContent = 'Ctrl'
 
 const keyWin = document.createElement('div');
 keyWin.className = 'key';
+keyWin.dataset.extra = 'true';
 keyRow5.append(keyWin);
 keyWin.textContent = 'Win'
 
 const keyLeftAlt = document.createElement('div');
 keyLeftAlt.className = 'key';
+keyLeftAlt.dataset.extra = 'true';
 keyRow5.append(keyLeftAlt);
 keyLeftAlt.textContent = 'Alt'
 
@@ -411,6 +423,7 @@ keySpace.textContent = ' '
 
 const keyRightAlt = document.createElement('div');
 keyRightAlt.className = 'key';
+keyRightAlt.dataset.extra = 'true';
 keyRow5.append(keyRightAlt);
 keyRightAlt.textContent = 'Alt'
 
@@ -434,6 +447,7 @@ keyArrowRight.textContent = '►'
 
 const keyRightCtrl = document.createElement('div');
 keyRightCtrl.className = 'key';
+keyRightCtrl.dataset.extra = 'true';
 keyRow5.append(keyRightCtrl);
 keyRightCtrl.textContent = 'Ctrl'
 
@@ -452,22 +466,111 @@ wrapper.append(languageCombination);
 
 
 
+// test
+// function changeToCaps() {
+//     if(isCaps == true) {
+//         keyM.textContent = String.fromCodePoint((keyM.textContent.codePointAt(0)) - 32);
+//     }
+// }
+// console.log(keyM.textContent.codePointAt(0))
+
+// shadow.addEventListener('click', () => {
+//     menu.classList.remove('header__nav_active')
+//     burgerItem.classList.remove('burger__active')
+//     shadow.classList.remove('shadow_active');
+//     menuIsActive = false;
+//     body.classList.remove('body-no-scroll')
+// });
 
 
+let isCaps = false;
+keyCapsLock.addEventListener('click', myScript)
+function myScript(){
+    if(isCaps === false) {
+        isCaps = true
+        keyCapsLock.classList.add('active');
+        document.querySelectorAll('.key').forEach(function(element) {
+            if(element.getAttribute('data-id') > 76 
+                && element.getAttribute('data-id') < 91
+                || element.getAttribute('data-id') > 96
+                && element.getAttribute('data-id') < 123) {
+                element.textContent = String.fromCodePoint((element.textContent.codePointAt(0)) - 32);
+            }
+        })
+    
+        // keyM.textContent = String.fromCodePoint((key.textContent.codePointAt(0)) - 32);
+        console.log(isCaps)
+        return isCaps
+    }
+    else if(isCaps === true) {
+        isCaps = false
+        keyCapsLock.classList.remove('active');
+        document.querySelectorAll('.key').forEach(function(element) {
+            if(element.getAttribute('data-id') > 76 
+                && element.getAttribute('data-id') < 91
+                || element.getAttribute('data-id') > 96
+                && element.getAttribute('data-id') < 123) {
+                element.textContent = String.fromCodePoint((element.textContent.codePointAt(0)) + 32);
+            }
+        })
+
+        // keyM.textContent = String.fromCodePoint((key.textContent.codePointAt(0)) + 32);
+        console.log(isCaps)
+        return isCaps
+    }
+};
+console.log(keyM.textContent.codePointAt(0))
 
 
 document.onkeypress = function(event) {
-    console.log(event.code)
+    // console.log(event.code)
     console.log(event.keyCode)
     document.querySelectorAll('.key').forEach(function(element) {
         element.classList.remove('active');
     })
 
-    document.querySelector('.key[data-id="' + event.keyCode +'"]').classList.add('active');
-    textarea.innerHTML += String.fromCharCode(event.keyCode);
-
-    setTimeout(()=>{ document.querySelector('.key[data-id="' + event.keyCode +'"]').classList.remove('active'); }, 200);
+    if(isCaps === false) {
+        document.querySelector('.key[data-id="' + event.keyCode +'"]').classList.add('active');
+        textarea.innerHTML += String.fromCharCode(event.keyCode);
+        // if(event.keyCode > 76 || event.keyCode >47 && event.keyCode < 58) {
+        // }
+    
+        setTimeout(()=>{ document.querySelector('.key[data-id="' + event.keyCode +'"]').classList.remove('active'); }, 200);
+    } else if(isCaps === true && event.keyCode > 76) {
+        document.querySelector('.key[data-caps="' + event.keyCode +'"]').classList.add('active');
+        textarea.innerHTML += String.fromCharCode(event.keyCode);
+    
+        setTimeout(()=>{ document.querySelector('.key[data-id="' + event.keyCode +'"]').classList.remove('active'); }, 200);
+    } else if(isCaps === true && event.keyCode < 76) {
+        document.querySelector('.key[data-id="' + event.keyCode +'"]').classList.add('active');
+        textarea.innerHTML += String.fromCharCode(event.keyCode);
+        setTimeout(()=>{ document.querySelector('.key[data-id="' + event.keyCode +'"]').classList.remove('active'); }, 200);
 }
+}
+
+
+
+
+// document.onkeypress = function(event) {
+//     console.log(event.code)
+//     console.log(event.keyCode)
+//     document.querySelectorAll('.extra-key').forEach(function(element) {
+//         element.classList.remove('active');
+//     })
+
+
+//     if(isCaps === false) {
+//         document.querySelector('.extra-key[data-id="' + event.keyCode +'"]').classList.add('active');
+//         textarea.innerHTML += String.fromCharCode(event.keyCode);
+    
+//         setTimeout(()=>{ document.querySelector('.extra-key[data-id="' + event.keyCode +'"]').classList.remove('active'); }, 200);
+//     } else if(isCaps === true) {
+//         document.querySelector('.extra-key[data-caps="' + event.keyCode +'"]').classList.add('active');
+//         textarea.innerHTML += String.fromCharCode(event.keyCode);
+    
+//         setTimeout(()=>{ document.querySelector('.extra-key[data-id="' + event.keyCode +'"]').classList.remove('active'); }, 200);
+//     }
+// }
 
 document.querySelectorAll('.key').forEach(function(element) {
     element.onclick = function(event){
@@ -475,13 +578,48 @@ document.querySelectorAll('.key').forEach(function(element) {
         document.querySelectorAll('.key').forEach(function(element) {
             element.classList.remove('active');
         });
-        let code = this.getAttribute('data-id');
-        textarea.innerHTML += String.fromCharCode(code);
-        console.log(code);
+        if(element.getAttribute('data-extra') === null) {
+                // element.textContent = String.fromCodePoint((element.textContent.codePointAt(0)) + 32);
+                textarea.innerHTML += this.innerHTML;
+
+        } else if(element.getAttribute('data-extra') === 'true') {
+            textarea.innerHTML += '';
+        }
+        // let code = this.getAttribute('data-id');
+        // console.log(code);
 
     }
 });
 
+// // БЫЛО ИЗНАЧАЛЬНО И РАБОТАЛО
+// document.querySelectorAll('.key').forEach(function(element) {
+//     element.onclick = function(event){
+
+//         document.querySelectorAll('.key').forEach(function(element) {
+//             element.classList.remove('active');
+//         });
+//         let code = this.getAttribute('data-id');
+//         textarea.innerHTML += String.fromCharCode(code);
+//         console.log(code);
+
+//     }
+// });
+// ДО СЮДА БЫЛО ИЗНАЧАЛЬНО И РАБОТАЛО
+
+
+
+// document.querySelectorAll('.extra-key').forEach(function(element) {
+//     element.onclick = function(event){
+
+//         document.querySelectorAll('.extra-key').forEach(function(element) {
+//             element.classList.remove('active');
+//         });
+//         let code = this.getAttribute('data-id');
+//         textarea.innerHTML += String.fromCharCode(code);
+//         console.log(code);
+
+//     }
+// });
 
 
 
