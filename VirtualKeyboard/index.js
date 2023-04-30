@@ -127,60 +127,70 @@ keyTab.textContent = 'Tab'
 const keyQ = document.createElement('div');
 keyQ.className = 'key';
 keyQ.dataset.id = '113';
+keyQ.dataset.caps = '81';
 keyRow2.append(keyQ);
 keyQ.textContent = 'q'
 
 const keyW = document.createElement('div');
 keyW.className = 'key';
 keyW.dataset.id = '119';
+keyW.dataset.caps = '87';
 keyRow2.append(keyW);
 keyW.textContent = 'w'
 
 const keyE = document.createElement('div');
 keyE.className = 'key';
 keyE.dataset.id = '101';
+keyE.dataset.caps = '69';
 keyRow2.append(keyE);
 keyE.textContent = 'e'
 
 const keyR = document.createElement('div');
 keyR.className = 'key';
 keyR.dataset.id = '114';
+keyR.dataset.caps = '82';
 keyRow2.append(keyR);
 keyR.textContent = 'r'
 
 const keyT = document.createElement('div');
 keyT.className = 'key';
 keyT.dataset.id = '116';
+keyT.dataset.caps = '84';
 keyRow2.append(keyT);
 keyT.textContent = 't'
 
 const keyY = document.createElement('div');
 keyY.className = 'key';
 keyY.dataset.id = '121';
+keyY.dataset.caps = '89';
 keyRow2.append(keyY);
 keyY.textContent = 'y'
 
 const keyU = document.createElement('div');
 keyU.className = 'key';
 keyU.dataset.id = '117';
+keyU.dataset.caps = '85';
 keyRow2.append(keyU);
 keyU.textContent = 'u'
 
 const keyI = document.createElement('div');
 keyI.className = 'key';
 keyI.dataset.id = '105';
+keyI.dataset.caps = '73';
 keyRow2.append(keyI);
 keyI.textContent = 'i'
 
 const keyO = document.createElement('div');
 keyO.className = 'key';
 keyO.dataset.id = '111';
+keyO.dataset.caps = '79';
 keyRow2.append(keyO);
 keyO.textContent = 'o'
 
 const keyP = document.createElement('div');
 keyP.className = 'key';
 keyP.dataset.id = '112';
+keyP.dataset.caps = '80';
 keyRow2.append(keyP);
 keyP.textContent = 'p'
 
@@ -219,62 +229,69 @@ keyboard.append(keyRow3);
 
 const keyCapsLock = document.createElement('div');
 keyCapsLock.className = 'capslock';
-// keyCapsLock.className = 'key';
-// keyCapsLock.classList.add('capslock');
 keyRow3.append(keyCapsLock);
 keyCapsLock.textContent = 'CapsLock'
 
 const keyA = document.createElement('div');
 keyA.className = 'key';
 keyA.dataset.id = '97';
+keyA.dataset.caps = '65';
 keyRow3.append(keyA);
 keyA.textContent = 'a'
 
 const keyS = document.createElement('div');
 keyS.className = 'key';
 keyS.dataset.id = '115';
+keyS.dataset.caps = '83';
 keyRow3.append(keyS);
 keyS.textContent = 's'
 
 const keyD = document.createElement('div');
 keyD.className = 'key';
 keyD.dataset.id = '100';
+keyD.dataset.caps = '68';
 keyRow3.append(keyD);
 keyD.textContent = 'd'
 
 const keyF = document.createElement('div');
 keyF.className = 'key';
 keyF.dataset.id = '102';
+keyF.dataset.caps = '70';
 keyRow3.append(keyF);
 keyF.textContent = 'f'
 
 const keyG = document.createElement('div');
 keyG.className = 'key';
 keyG.dataset.id = '103';
+keyG.dataset.caps = '71';
 keyRow3.append(keyG);
 keyG.textContent = 'g'
 
 const keyH = document.createElement('div');
 keyH.className = 'key';
 keyH.dataset.id = '104';
+keyH.dataset.caps = '72';
 keyRow3.append(keyH);
 keyH.textContent = 'h'
 
 const keyJ = document.createElement('div');
 keyJ.className = 'key';
 keyJ.dataset.id = '106';
+keyJ.dataset.caps = '74';
 keyRow3.append(keyJ);
 keyJ.textContent = 'j'
 
 const keyK = document.createElement('div');
 keyK.className = 'key';
 keyK.dataset.id = '107';
+keyK.dataset.caps = '75';
 keyRow3.append(keyK);
 keyK.textContent = 'k'
 
 const keyL = document.createElement('div');
 keyL.className = 'key';
 keyL.dataset.id = '108';
+keyL.dataset.caps = '76';
 keyRow3.append(keyL);
 keyL.textContent = 'l'
 
@@ -317,36 +334,42 @@ keyLeftShift.textContent = 'Shift'
 const keyZ = document.createElement('div');
 keyZ.className = 'key';
 keyZ.dataset.id = '122';
+keyZ.dataset.caps = '90';
 keyRow4.append(keyZ);
 keyZ.textContent = 'z'
 
 const keyX = document.createElement('div');
 keyX.className = 'key';
 keyX.dataset.id = '120';
+keyX.dataset.caps = '88';
 keyRow4.append(keyX);
 keyX.textContent = 'x'
 
 const keyC = document.createElement('div');
 keyC.className = 'key';
 keyC.dataset.id = '99';
+keyC.dataset.caps = '67';
 keyRow4.append(keyC);
 keyC.textContent = 'c'
 
 const keyV = document.createElement('div');
 keyV.className = 'key';
 keyV.dataset.id = '118';
+keyV.dataset.caps = '86';
 keyRow4.append(keyV);
 keyV.textContent = 'v'
 
 const keyB = document.createElement('div');
 keyB.className = 'key';
 keyB.dataset.id = '98';
+keyB.dataset.caps = '66';
 keyRow4.append(keyB);
 keyB.textContent = 'b'
 
 const keyN = document.createElement('div');
 keyN.className = 'key';
 keyN.dataset.id = '110';
+keyN.dataset.caps = '78';
 keyRow4.append(keyN);
 keyN.textContent = 'n'
 
@@ -486,6 +509,7 @@ wrapper.append(languageCombination);
 let isCaps = false;
 keyCapsLock.addEventListener('click', myScript)
 function myScript(){
+    // textarea.focus()
     if(isCaps === false) {
         isCaps = true
         keyCapsLock.classList.add('active');
@@ -522,12 +546,63 @@ function myScript(){
 console.log(keyM.textContent.codePointAt(0))
 
 
+document.addEventListener('keyup', (event) => {
+    if(event.getModifierState('CapsLock') && isCaps === false) {
+        isCaps = true;
+        keyCapsLock.classList.add('active');
+        console.log(isCaps)
+        document.querySelectorAll('.key').forEach(function(element) {
+            if(element.getAttribute('data-id') > 76 
+                && element.getAttribute('data-id') < 91
+                || element.getAttribute('data-id') > 96
+                && element.getAttribute('data-id') < 123) {
+                element.textContent = String.fromCodePoint((element.textContent.codePointAt(0)) - 32);
+            }
+        })
+
+
+        return console.log('CapsLock is on');
+
+    }
+    if(!event.getModifierState('CapsLock') && isCaps === true) {
+        isCaps = false;
+        keyCapsLock.classList.remove('active');
+        console.log(isCaps)
+        document.querySelectorAll('.key').forEach(function(element) {
+            if(element.getAttribute('data-id') > 76 
+                && element.getAttribute('data-id') < 91
+                || element.getAttribute('data-id') > 96
+                && element.getAttribute('data-id') < 123) {
+                element.textContent = String.fromCodePoint((element.textContent.codePointAt(0)) + 32);
+            }
+        })
+
+        return console.log('CapsLock is off');
+    }
+})
+// console.log(event.getModifierState('CapsLock'));
+
+
 document.onkeypress = function(event) {
     // console.log(event.code)
     console.log(event.keyCode)
     document.querySelectorAll('.key').forEach(function(element) {
         element.classList.remove('active');
     })
+
+    if(event.getModifierState('CapsLock')) {
+        isCaps = true;
+        keyCapsLock.classList.add('active');
+        console.log(isCaps)
+        console.log('CapsLock is on');
+    }
+    if(!event.getModifierState('CapsLock')) {
+        isCaps = false;
+        keyCapsLock.classList.remove('active');
+        console.log(isCaps)
+        console.log('CapsLock is off');
+    }
+
 
     if(isCaps === false) {
         document.querySelector('.key[data-id="' + event.keyCode +'"]').classList.add('active');
@@ -536,12 +611,12 @@ document.onkeypress = function(event) {
         // }
     
         setTimeout(()=>{ document.querySelector('.key[data-id="' + event.keyCode +'"]').classList.remove('active'); }, 200);
-    } else if(isCaps === true && event.keyCode > 76) {
+    } else if(isCaps === true && event.keyCode > 64 && event.keyCode < 91) {
         document.querySelector('.key[data-caps="' + event.keyCode +'"]').classList.add('active');
         textarea.innerHTML += String.fromCharCode(event.keyCode);
     
-        setTimeout(()=>{ document.querySelector('.key[data-id="' + event.keyCode +'"]').classList.remove('active'); }, 200);
-    } else if(isCaps === true && event.keyCode < 76) {
+        setTimeout(()=>{ document.querySelector('.key[data-caps="' + event.keyCode +'"]').classList.remove('active'); }, 200);
+    } else if(isCaps === true) {
         document.querySelector('.key[data-id="' + event.keyCode +'"]').classList.add('active');
         textarea.innerHTML += String.fromCharCode(event.keyCode);
         setTimeout(()=>{ document.querySelector('.key[data-id="' + event.keyCode +'"]').classList.remove('active'); }, 200);
@@ -572,8 +647,20 @@ document.onkeypress = function(event) {
 //     }
 // }
 
+
+
+
+
+// document.querySelector('.textarea').onkeypress = function(event) {
+//     console.log(event)
+// }
+
+
+
+
 document.querySelectorAll('.key').forEach(function(element) {
     element.onclick = function(event){
+        // textarea.focus()
 
         document.querySelectorAll('.key').forEach(function(element) {
             element.classList.remove('active');
