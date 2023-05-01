@@ -72,6 +72,41 @@ html {
 }
 
 
+
+
+.extra-key {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #a1b9d0;
+    border-radius: 4px;
+    margin: 3px;
+    padding: 4px;
+    text-align: center;
+    line-height: 32px;
+    background-color: rgb(173, 210, 300);
+}
+
+.extra-key:hover {
+    color: #fff;
+    background: #a1b9d0;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.keyboard .extra-key.active {
+    border-radius: 50px;
+}
+
+.extra-key:active {
+    border-radius: 50px;
+    background:  rgb(83, 152, 221);
+}
+
+
+
+
+
 .backspace {
     width: 105px;
 }
@@ -81,8 +116,42 @@ html {
 }
 
 .capslock {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #a1b9d0;
+    border-radius: 4px;
+    margin: 3px;
+    padding: 4px;
+    text-align: center;
+    line-height: 32px;
+    background-color: rgb(173, 210, 300);
+
+
     width: 96px;
 }
+.capslock:hover {
+    color: #fff;
+    background: #a1b9d0;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.keyboard .capslock.active {
+    border-radius: 50px;
+    background:  rgb(83, 152, 221);
+}
+
+.capslock:active {
+    border-radius: 50px;
+    background:  rgb(83, 152, 221);
+}
+
+
+
+
+
+
 
 .space {
     width: 336px;
