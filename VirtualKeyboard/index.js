@@ -623,6 +623,16 @@ document.querySelectorAll('.key').forEach((element) => {
   };
 });
 
+
+
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'Tab') {
+    textarea.innerHTML += '    ';
+    textarea.focus()
+    console.log('tab')
+  }
+})
+
 // // БЫЛО ИЗНАЧАЛЬНО И РАБОТАЛО
 // document.querySelectorAll('.key').forEach(function(element) {
 //     element.onclick = function(event){
